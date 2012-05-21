@@ -43,7 +43,7 @@
               <body>
                 <body.head>
                   <headline>
-                    <hl1><?php print $row->title ?></hl1>                  
+                    <hl1><?php print $row->title ?></hl1>
                   </headline>
                 </body.head>
                 <body.content>

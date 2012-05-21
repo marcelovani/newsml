@@ -25,7 +25,7 @@ class views_plugin_style_newsml extends views_plugin_style {
       '#description' => t('Logo dimensions should be 130x30pixels maximum.'),
     );
   }
-  
+
   function option_definition() {
     $options = parent::option_definition();
 

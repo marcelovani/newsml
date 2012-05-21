@@ -17,7 +17,7 @@ function newsml_views_default_views() {
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  
+
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'MSN feed';
@@ -144,7 +144,7 @@ function newsml_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
   		'article' => 'article',
   );
-  
+
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
   $handler->display->display_options['pager']['type'] = 'some';

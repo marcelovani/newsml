@@ -12,6 +12,6 @@
     <DateAndTime><?php print $datetime ?></DateAndTime>
   </NewsEnvelope>
   <?php if (!empty($options['logo'])): ?><NewsService FormalName="Thumbnail" link-url="<?php print $base_url ?>"><?php print $options['logo'] ?></NewsService><?php endif ?>
-    
+
   <?php print $rows; ?>
 </NewsML>

@@ -1,8 +1,7 @@
 <?php
 
 /**
- * @file
- * The default view for the media browser library tab.
+ * @file The default view for the NewsML XML feed.
  */
 
 /**
@@ -157,5 +156,3 @@ function newsml_views_default_views() {
   $views[$view->name] = $view;
   return $views;
 }
-
-

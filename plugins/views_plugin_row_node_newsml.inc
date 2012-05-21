@@ -1,13 +1,13 @@
 <?php
 /**
- * @file
- * Contains the node NewsML row style plugin.
+ * @file Contains the node NewsML row style plugin.
  */
 
 /**
  * Plugin which performs a node_view on the resulting object
  * and formats it as an NewsML item.
  */
+
 class views_plugin_row_node_newsml extends views_plugin_row {
   // Basic properties that let the row style follow relationships.
   var $base_table = 'node';
@@ -27,7 +27,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
   }
 
   function render($row) {
-    // For the most part, this code is taken from node_feed() in node.module
+    // For the most part, this code is taken from node_feed() in node.module.
     global $base_url;
 
     $nid = $row->{$this->field_alias};
@@ -44,7 +44,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
     $body = field_get_items('node', $node, 'body');
     $body = trim($body[0]['safe_value']);
     $body .= "\n\nMore on " . l($node->title, 'node/'. $node->nid, array('attributes' => array('target'=>'_blank'), 'absolute' => TRUE));
-    // Ignoring paging! It's a headache
+    // Ignoring paging! It's a headache.
     $body = array($this->_clean_html(_filter_autop($body)));
 
     $item = new stdClass;
@@ -65,23 +65,23 @@ class views_plugin_row_node_newsml extends views_plugin_row {
   
   private function _clean_html($html) {
     global $base_url;
-    //remove newlines and carriage returns
+    //remove newlines and carriage returns.
     $html = str_replace(array("\r\n", "\n", "\r"), ' ', trim($html));
 
     //body text seems to have allready been UTF-8 encoded. Need to check this out in Page class.
     //$html = utf8_encode($html);
 
-    //strip tags
+    //strip tags.
     $html = strip_tags($html,'<p><a><ul>');
 
-    //remove attributes from <p> tags
+    //remove attributes from <p> tags.
     //some attributes could contain '>' regex needs rethink.
     $html = preg_replace('/<p[^>]+>/', '<p>', $html);
 
-    //strip empty tags
+    //strip empty tags.
     $html = preg_replace('/<p>\s*<\/p>/', '', $html);
 
-    //strip empty space at begining of paragraph
+    //strip empty space at begining of paragraph.
     $html = preg_replace('/<p>\s*/', '<p>', $html);
 
     //convert relative URL's to absolute in anchor tags.
@@ -90,7 +90,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
     //remove <a> tags that lead to other sites.
     $html = preg_replace_callback("/<a(?:.*?)\/\/(.*?)>(.*?)<\/a>/s", array(__CLASS__, 'strip_external_links'), $html);
 
-    // replace target="" attributes
+    // replace target="" attributes.
     //$html = preg_replace('/target="_[a-z]+?"/', '', $html);
 
     $html = $this->html_convert_entities($html);
@@ -118,7 +118,9 @@ class views_plugin_row_node_newsml extends views_plugin_row {
   /* Swap HTML named entity with its numeric equivalent. If the entity
    * isn't in the lookup table, this function returns a blank, which
    * destroys the character in the output - this is probably the 
-   * desired behaviour when producing XML. */
+   * desired behaviour when producing XML. 
+   */
+  
   public static function convert_entity($matches) {
     // Entity not found? Destroy it.
     return isset(self::$table[$matches[1]]) ? self::$table[$matches[1]] : '';
@@ -378,4 +380,3 @@ class views_plugin_row_node_newsml extends views_plugin_row {
                         'yuml'     => '&#255;',
                         );
 }
-

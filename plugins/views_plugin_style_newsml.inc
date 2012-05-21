@@ -1,7 +1,6 @@
 <?php
 /**
- * @file
- * Contains the NewsML style plugin.
+ * @file Contains the NewsML style plugin.
  */
 
 /**
@@ -9,6 +8,7 @@
  *
  * @ingroup views_style_plugins
  */
+
 class views_plugin_style_newsml extends views_plugin_style {
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);

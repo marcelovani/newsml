@@ -1,7 +1,7 @@
 <?php
+
 /**
- * @file
- * Views include file with views hooks.
+ * @file Views include file with views hooks.
  */
 
 /**

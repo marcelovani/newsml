@@ -1,0 +1,7 @@
+name = NewsML
+description = "Plugin to export views as NewsML"
+package = Views
+core = 7.x
+dependencies[] = views
+files[] = plugins/views_plugin_style_newsml.inc
+files[] = plugins/views_plugin_row_node_newsml.inc

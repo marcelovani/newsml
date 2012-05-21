@@ -13,7 +13,7 @@ function template_preprocess_views_view_newsml(&$vars) {
 function template_preprocess_views_view_row_newsml(&$vars) {
   global $base_url;
   $vars['base_url'] = $base_url;
-  $vars['provider'] = $vars['view']->style_plugin->options['provider'];
+  $vars['provider'] = token_replace($vars['view']->style_plugin->options['provider']);
 
   $node = $vars['row']->node;
   $vars['created'] = date('Ymd\THis', $node->created);

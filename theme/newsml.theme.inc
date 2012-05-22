@@ -42,7 +42,7 @@ function template_preprocess_views_view_row_newsml(&$vars) {
   $images = field_get_items('node', $node, 'field_primary_image');
   if (!empty($images)) {
     $image = new stdClass();
-    $image->path = image_style_url('insert_main_half', $images[0]['uri']);
+    $image->path = image_style_url('newsml_feed', $images[0]['uri']);
     $vars['image'] = $image;
   }
 }

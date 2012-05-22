@@ -150,6 +150,7 @@ function newsml_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'newsml';
   $handler->display->display_options['style_options']['provider'] = '[site:name]';
+  $handler->display->display_options['style_options']['logo'] = '';
   $handler->display->display_options['row_plugin'] = 'node_newsml';
   $handler->display->display_options['path'] = 'extfeeds/msn.xml';
 

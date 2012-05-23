@@ -13,7 +13,7 @@ function newsml_views_api() {
 /**
  * Implements hook_image_default_styles().
  */
-function theweek_feeds_image_default_styles() {
+function newsml_image_default_styles() {
   $styles = array();
 
   // Exported image style: theweek_msn_feed

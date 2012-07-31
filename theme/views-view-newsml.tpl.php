@@ -5,8 +5,8 @@
  *
  * @ingroup views_templates
  */
+print '<?xml version="1.0" encoding="utf-8"?>';
 ?>
-<?xml version="1.0" encoding="utf-8"?>
 <NewsML xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:exsl="http://exslt.org/common">
   <NewsEnvelope>
     <DateAndTime><?php print $datetime ?></DateAndTime>

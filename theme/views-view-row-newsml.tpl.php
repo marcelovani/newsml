@@ -19,7 +19,9 @@
     <Status FormalName="Usable"/>
   </NewsManagement>
   <NewsComponent Duid="<?php print $row->nid ?>" Essential="no" EquivalentsList="no">
-    <NewsLines/>
+    <NewsLines>
+      <CopyrightLine/>
+    </NewsLines>
     <NewsComponent Duid="body-<?php print $row->nid ?>">
       <DateLine><?php print $published ?></DateLine>
 <?php if (isset($author) && !empty($author)): ?>

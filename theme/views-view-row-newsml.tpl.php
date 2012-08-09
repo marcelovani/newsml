@@ -42,9 +42,9 @@
             <nitf>
               <body>
                 <body.head>
-                  <headline>
-                    <hl1><?php print $row->title ?></hl1>
-                  </headline>
+                  <hedline>
+                    <hl1><?php print $row->title ?></hl1>                  
+                  </hedline>
                 </body.head>
                 <body.content>
                   <?php print $page ?>
@@ -57,7 +57,7 @@
 <?php if (isset($tags) && !empty($tags)): ?>
         <item_keywords>
 <?php foreach ($tags as $tag): ?>
-          <item_keyword><?php print $tag ?></item_keyword>
+          <item_keyword><?php print htmlspecialchars($tag, ENT_NOQUOTES); ?></item_keyword>
 <?php endforeach ?>
         </item_keywords>
 <?php endif ?>

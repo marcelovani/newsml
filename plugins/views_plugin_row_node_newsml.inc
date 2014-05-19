@@ -49,7 +49,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
 
     $item = new stdClass;
     $item->body = $body;
-    $item->title = $node->title;
+    $item->title = $this->html_convert_entities(htmlspecialchars($node->title));
     $item->link = url("node/$node->nid", array('absolute' => TRUE));
     $item->nid = $node->nid;
     $item->node = $node;
@@ -84,11 +84,14 @@ class views_plugin_row_node_newsml extends views_plugin_row {
     //strip empty space at begining of paragraph.
     $html = preg_replace('/<p>\s*/', '<p>', $html);
 
+    //remove anchor tags.
+    $html = preg_replace("/<a[^>]*?href=[\"|']#.*?<\/a>/i", "", $html);
+
     //convert relative URL's to absolute in anchor tags.
     $html = preg_replace("#href=(\"|')/|../../../#i", "href=$1" . $base_url . "/", $html);
 
     //remove <a> tags that lead to other sites.
-    $html = preg_replace_callback("/<a(?:.*?)\/\/(.*?)>(.*?)<\/a>/s", array(__CLASS__, 'strip_external_links'), $html);
+    $html = preg_replace_callback("/<a[^>]*?href=[\"|'].*?:\/\/(.*?)[\"|'].*?>(.*?)<\/a>/", array(__CLASS__, 'strip_external_links'), $html);
 
     // replace target="" attributes.
     //$html = preg_replace('/target="_[a-z]+?"/', '', $html);

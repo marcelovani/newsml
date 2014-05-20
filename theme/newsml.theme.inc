@@ -22,10 +22,16 @@ function template_preprocess_views_view_row_newsml(&$vars) {
   if (!empty($published)) {
     $vars['published'] = date('Ymd\THis', strtotime($published[0]['value']));
   }
+
   $authors = field_get_items('node', $node, 'field_author');
-  if (!empty($authors)) {
+  if (isset($authors[0]['node']->title)) {
     $vars['author'] = $authors[0]['node']->title;
   }
+  elseif (isset($authors[0]['nid'])) {
+    $author = node_load((int) $authors[0]['nid']);
+    $vars['author'] = $author->title;
+  }
+
   $teaser = field_get_items('node', $node, 'field_short_teaser');
   if (!empty($teaser)) {
     $vars['teaser'] = $teaser[0]['safe_value'];

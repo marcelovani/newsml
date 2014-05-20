@@ -16,7 +16,7 @@ function newsml_views_api() {
 function newsml_image_default_styles() {
   $styles = array();
 
-  // Exported image style: theweek_msn_feed
+  // Exported image style: newsml_feed
   $styles['newsml_feed'] = array(
     'name' => 'newsml_feed',
     'effects' => array(

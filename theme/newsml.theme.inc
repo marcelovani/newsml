@@ -43,6 +43,7 @@ function template_preprocess_views_view_row_newsml(&$vars) {
   if (!empty($images)) {
     $image = new stdClass();
     $image->path = image_style_url('newsml_feed', $images[0]['uri']);
+    $image->filemime = $images[0]['filemime'];
     $vars['image'] = $image;
   }
 }

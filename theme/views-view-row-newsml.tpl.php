@@ -45,7 +45,7 @@
               <body>
                 <body.head>
                   <hedline>
-                    <hl1><?php print $row->title ?></hl1>                  
+                    <hl1><?php print $row->title ?></hl1>
                   </hedline>
                 </body.head>
                 <body.content>
@@ -70,9 +70,13 @@
         <NewsComponent Duid="main-image-<?php print $row->nid ?>">
           <NewsComponent>
             <Role FormalName="Main"/>
-            <ContentItem Href="<?php print $image->path ?>">
+            <ContentItem
+              Href="<?php print $image->path ?>"
+              <?php if (isset($image->credits)) echo ' copyright="&#174;' . $image->credits . '&#174;"' ?>
+              <?php if (isset($image->description)) echo ' imagetext="' . $image->description . '"' ?>
+              <?php if (isset($image->title)) echo ' title="' . $image->title . '"' ?>>
               <MediaType FormalName="Photo"/>
-              <MimeType FormalName="image/jpeg"/>
+              <MimeType FormalName="<?php print $image->filemime ?>"/>
             </ContentItem>
           </NewsComponent>
           <NewsComponent>

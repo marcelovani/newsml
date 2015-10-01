@@ -28,7 +28,6 @@ class views_plugin_row_node_newsml extends views_plugin_row {
 
   function render($row) {
     // For the most part, this code is taken from node_feed() in node.module.
-    global $base_url;
 
     $nid = $row->{$this->field_alias};
     if (!is_numeric($nid)) {

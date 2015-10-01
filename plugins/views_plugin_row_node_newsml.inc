@@ -67,7 +67,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
     //remove newlines and carriage returns.
     $html = str_replace(array("\r\n", "\n", "\r"), ' ', trim($html));
 
-    //body text seems to have allready been UTF-8 encoded. Need to check this out in Page class.
+    //body text seems to have already been UTF-8 encoded. Need to check this out in Page class.
     //$html = utf8_encode($html);
     //strip tags.
     $html = strip_tags($html,'<p><a><ul>');
@@ -79,7 +79,7 @@ class views_plugin_row_node_newsml extends views_plugin_row {
     //strip empty tags.
     $html = preg_replace('/<p>\s*<\/p>/', '', $html);
 
-    //strip empty space at begining of paragraph.
+    //strip empty space at beginning of paragraph.
     $html = preg_replace('/<p>\s*/', '<p>', $html);
 
     //remove anchor tags.

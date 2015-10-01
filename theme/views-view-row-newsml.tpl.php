@@ -5,6 +5,7 @@
  *
  * @ingroup views_templates
  */
+
 ?>
 <NewsItem>
   <Identification>

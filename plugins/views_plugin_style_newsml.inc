@@ -6,7 +6,7 @@
 /**
  * Default style plugin to render an NewsML feed.
  *
- * @ingroup views_style_plugins
+ * @ingroup views_style_plugins.
  */
 
 class views_plugin_style_newsml extends views_plugin_style {

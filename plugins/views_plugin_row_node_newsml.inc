@@ -69,7 +69,6 @@ class views_plugin_row_node_newsml extends views_plugin_row {
 
     //body text seems to have allready been UTF-8 encoded. Need to check this out in Page class.
     //$html = utf8_encode($html);
-
     //strip tags.
     $html = strip_tags($html,'<p><a><ul>');
 
@@ -94,7 +93,6 @@ class views_plugin_row_node_newsml extends views_plugin_row {
 
     // replace target="" attributes.
     //$html = preg_replace('/target="_[a-z]+?"/', '', $html);
-
     $html = $this->html_convert_entities($html);
 
     return $html;

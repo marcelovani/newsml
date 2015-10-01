@@ -1,4 +1,7 @@
 <?php
+/**
+ * @file Provides default image styles.
+ */
 
 /**
  * Implementation of hook_views_api().
@@ -6,7 +9,7 @@
 function newsml_views_api() {
   return array(
     'api' => 3,
-    'path' => drupal_get_path('module', 'newsml') .'/views'
+    'path' => drupal_get_path('module', 'newsml') . '/views'
   );
 }
 

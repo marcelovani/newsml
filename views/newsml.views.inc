@@ -1,11 +1,10 @@
 <?php
-
 /**
  * @file Views include file with views hooks.
  */
 
 /**
- * Implements hook_views_plugins()
+ * Implements hook_views_plugins().
  */
 function newsml_views_plugins() {
   $path = drupal_get_path('module', 'newsml');

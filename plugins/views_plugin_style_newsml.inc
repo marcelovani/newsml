@@ -1,6 +1,7 @@
 <?php
 /**
- * @file Contains the NewsML style plugin.
+ * @file
+ * Contains the NewsML style plugin.
  */
 
 /**

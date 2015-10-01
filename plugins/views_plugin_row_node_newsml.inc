@@ -1,6 +1,7 @@
 <?php
 /**
- * @file Contains the node NewsML row style plugin.
+ * @file
+ * Contains the node NewsML row style plugin.
  */
 
 /**
@@ -64,35 +65,35 @@ class views_plugin_row_node_newsml extends views_plugin_row {
 
   private function _clean_html($html) {
     global $base_url;
-    //remove newlines and carriage returns.
+    // Remove newlines and carriage returns.
     $html = str_replace(array("\r\n", "\n", "\r"), ' ', trim($html));
 
-    //body text seems to have already been UTF-8 encoded. Need to check this out in Page class.
-    //$html = utf8_encode($html);
-    //strip tags.
+    // Body text seems to have already been UTF-8 encoded. Need to check this out in Page class.
+    // $html = utf8_encode($html);
+    // Strip tags.
     $html = strip_tags($html,'<p><a><ul>');
 
-    //remove attributes from <p> tags.
-    //some attributes could contain '>' regex needs rethink.
+    // Remove attributes from <p> tags.
+    // Some attributes could contain '>' regex needs rethink.
     $html = preg_replace('/<p[^>]+>/', '<p>', $html);
 
-    //strip empty tags.
+    // Strip empty tags.
     $html = preg_replace('/<p>\s*<\/p>/', '', $html);
 
-    //strip empty space at beginning of paragraph.
+    // Strip empty space at beginning of paragraph.
     $html = preg_replace('/<p>\s*/', '<p>', $html);
 
-    //remove anchor tags.
+    // Remove anchor tags.
     $html = preg_replace("/<a[^>]*?href=[\"|']#.*?<\/a>/i", "", $html);
 
-    //convert relative URL's to absolute in anchor tags.
+    // Convert relative URL's to absolute in anchor tags.
     $html = preg_replace("#href=(\"|')/|../../../#i", "href=$1" . $base_url . "/", $html);
 
-    //remove <a> tags that lead to other sites.
+    // Remove <a> tags that lead to other sites.
     $html = preg_replace_callback("/<a[^>]*?href=[\"|'].*?:\/\/(.*?)[\"|'].*?>(.*?)<\/a>/", array(__CLASS__, 'strip_external_links'), $html);
 
-    // replace target="" attributes.
-    //$html = preg_replace('/target="_[a-z]+?"/', '', $html);
+    // Replace target="" attributes.
+    // $html = preg_replace('/target="_[a-z]+?"/', '', $html);
     $html = $this->html_convert_entities($html);
 
     return $html;

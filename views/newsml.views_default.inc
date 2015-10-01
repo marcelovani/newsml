@@ -1,6 +1,7 @@
 <?php
 /**
- * @file The default view for the NewsML XML feed.
+ * @file
+ * The default view for the NewsML XML feed.
  */
 
 /**
